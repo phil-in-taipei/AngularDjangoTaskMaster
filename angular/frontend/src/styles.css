@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+body, html {
+  color: #758d97 !important;
+  background-color: black !important;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.color-frame {
+    background-color: black;
+    border: #0098da solid 1px !important;
+    outline: #010b3e solid 10px !important;
+  }
+  
+.content {
+    padding-top: 40px;
+    color: #758d97 !important;
+    background-color: black !important;
+}
+
+.footer-styles {
+  flex-shrink: 0;   
+  justify-content: center;
+  background-color: black;
+}
+
+.main {
+  flex: 1 0 auto;
+  color: #758d97 !important;
+  background-color: black !important;
+}
+
+hr.thin-bl {
+  border: 1px solid #0098da;
+}
+
+hr.thick-br {
+  border: 2px solid #758d97;
+}
+
+hr.thin-br {
+  border: 1px solid #758d97;
+}
+
+.small-scr {
+  display: none;
+}
+
+.small-and-med-scr {
+  display: none;
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+  .hidden-small-and-medium {
+    display: none;
+  }
+
+  .small-and-med-scr {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .hidden-small-and-medium {
+    display: none;
+  }
+
+  .small-and-med-scr {
+    display: block;
+  }
+
+  
+  .hidden-small {
+    display: none;
+  }
+  
+  .small-scr {
+    display: block;
+  }
+
+}
