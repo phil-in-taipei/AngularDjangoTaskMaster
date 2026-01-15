@@ -3,3 +3,9 @@ django/backend/backend/.env
 
 #virtualenv
 django/venv
+
+#node modules
+angular/frontend/node_modules
+
+# angular cache
+.angular/
