@@ -39,7 +39,6 @@ class UserList(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         data = request.data
-        print(data)
         # checks that the password and re_password confirmation match
         if data['password'] == data['re_password']:
             with transaction.atomic():
