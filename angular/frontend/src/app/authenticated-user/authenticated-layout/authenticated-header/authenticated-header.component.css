@@ -1,59 +1,59 @@
 /* General Link Styling */
 .navbar-dark .navbar-nav .nav-link,
 .dropdown-menu .dropdown-item {
-  color: #758d97 !important;
+  color: #FFB6C1 !important;
 }
 
 /* Hover color for all dropdown links (including nested) */
 .navbar-dark .navbar-nav .nav-link:hover,
 .dropdown-menu .dropdown-item:hover {
-  color: #004483 !important;
+  color: #4682B4 !important;
   background-color: transparent;
 }
 
 .navbar-brand {
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
   
   .navbar-dark .navbar-nav > li > a:hover {
-      color: #004483;
+      color: #4682B4;
   }
   
   .navbar-dark .navbar-nav > .open > a:focus {
       background-color: black !important;
-      color: #758d97;
+      color: #FFB6C1;
   }
   
   .navbar-dark .navbar-nav > .open > a:hover {
-      color: #004483 !important;
+      color: #4682B4 !important;
   }
   
   .dropdown-menu {
       font-size: 1em;
-      color: #758d97 !important;
+      color: #FFB6C1 !important;
   }
   
   .dropdown-item > li > a:hover {
-      color: #004483 !important;
+      color: #4682B4 !important;
   }
 
   .navbar-dark .navbar-nav > li > a {
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
   
   .dropdown-menu > li > a {
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
   
   
   .mydropnav {
-      color: #758d97 !important;
+      color: #FFB6C1 !important;
   }
 
 /* styles.css or your component's style file */
 .dropdown-submenu {
     position: relative;
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
   
   .dropdown-submenu > .dropdown-menu {
@@ -69,20 +69,20 @@
   }
 
   .dropdown-submenu > .dropdown-menu > li > a {
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
 
   .dropdown-submenu > .dropdown-menu > li > a:hover {
-    color: #004483 !important;
+    color: #4682B4 !important;
   }
   
   /* Ensure nested dropdown items follow the same style */
 .dropdown-submenu .dropdown-item {
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
   
   .dropdown-submenu .dropdown-item:hover {
-    color: #004483 !important;
+    color: #4682B4 !important;
     background-color: transparent;
   }
   
@@ -90,6 +90,6 @@
   .dropdown-menu .dropdown-item:focus,
   .dropdown-menu .dropdown-item:active {
     background-color: transparent !important;
-    color: #004483 !important;
+    color: #4682B4 !important;
   }
   

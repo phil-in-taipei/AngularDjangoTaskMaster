@@ -1,86 +1,183 @@
 /* You can add global styles to this file, and also import other style files */
-body, html {
-  color: #758d97 !important;
-  background-color: black !important;
+body {
   display: flex;
   height: 100%;
   flex-direction: column;
 }
 
-.color-frame {
-    background-color: black;
-    border: #0098da solid 1px !important;
-    outline: #010b3e solid 10px !important;
-  }
-  
-.content {
-    padding-top: 40px;
-    color: #758d97 !important;
-    background-color: black !important;
+.shrink {
+  padding: auto;
+  width: 80%;
 }
 
-.footer-styles {
-  flex-shrink: 0;   
-  justify-content: center;
+table {
+    border-collapse: collapse;
+    padding: 1em;
+    text-align: center;
+}
+
+table tr {
+  padding: 1em;
+}
+
+.table > thead {
+  vertical-align: bottom;
+  border-top: 1px black;
+}
+
+table td {
+  border-left: 1px solid Black;
+  border-right: 1px solid Black;
+  padding: 1em;
+}
+
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: Black;
+  opacity: 1; /* Firefox */
+}
+
+.form-control:focus {
+  border-color: #4682B4;  
+  box-shadow: none; 
+  -webkit-box-shadow: none;
+}
+
+.border-dark {
+  border-color: Black;  
+}
+
+.bg-dark {
+  background-color: black;
+}
+
+.form-control {
+  border-color: black;  
+  box-shadow: none; 
+  -webkit-box-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.thick-br {
+  opacity: 1;
+  border-color:Black; 
+  background-color: Black;
+}
+
+.thin-white {
   background-color: black;
 }
 
 .main {
   flex: 1 0 auto;
-  color: #758d97 !important;
-  background-color: black !important;
+  color: black;
 }
 
-hr.thin-bl {
-  border: 1px solid #0098da;
+.mydropnav {
+  color: #FFB6C1;
 }
 
-hr.thick-br {
-  border: 2px solid #758d97;
+.mydropnav:hover {
+  color: #4682B4;
 }
 
-hr.thin-br {
-  border: 1px solid #758d97;
-}
-
-.small-scr {
-  display: none;
-}
-
-.small-and-med-scr {
-  display: none;
+footer {
+  flex-shrink: 0;   
+  justify-content: center;
+  background-color: black;
 }
 
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
-
-  .hidden-small-and-medium {
-    display: none;
-  }
-
-  .small-and-med-scr {
-    display: block;
-  }
-
+.confirm-style {
+  color: #4682B4;
 }
 
-@media screen and (max-width: 767px) {
+.confirm-style:hover {
+  color: #FFB6C1;
+}
 
-  .hidden-small-and-medium {
-    display: none;
-  }
+.link-style {
+  color: #FFB6C1;
+}
 
-  .small-and-med-scr {
-    display: block;
-  }
+.link-style:hover {
+  color: #4682B4;
+}
 
+.btn-outline-dark:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+  color: #FFB6C1;
+  background-color: black;
+  border-color: #FFB6C1; /*set the color you want here*/
+}
+
+
+.btn-dark:hover, .btn-dark:focus, .btn-dark:active, .btn-dark.active, .open>.dropdown-toggle.btn-dark {
+  color: black;
+  background-color: white;
+  border-color: black; /*set the color you want here*/
+}
+
+.btn-dark {
+  color: #FFB6C1;
+  background-color: black;
+  border-color: #FFB6C1;
+}
+
+a {
+  color: #4682B4;
+}
+
+a:hover {
+  color: #FFB6C1;
+}
+
+.color-frame {
+    border: #FFB6C1 solid 3px !important;
+    outline: black solid 5px !important;
+}
   
-  .hidden-small {
-    display: none;
-  }
-  
-  .small-scr {
-    display: block;
-  }
+.content {
+    padding-top: 70px;
+}
 
+.fixed-bottom {
+  bottom: 0;
+  width: 100%;
+}
+
+.login {
+    display: none;
+}
+
+.logo {
+        /* Set dimensions and circular shape */
+  width: 400px;
+  height: 200px;
+  border-radius: 80%;
+  background-color: Black;
+  border: #FFB6C1 solid 3px !important;
+  color: #FFB6C1;
+  /* Text color for the letters */
+  text-align: center; /* Center the text inside the circle */
+  display: flex; /* Enables flexbox for positioning letters */
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+  font-weight: bold; /* Make the text bold */
+  margin: 10 auto;
+  padding: 50px;
+  line-height: 300px; 
+}
+
+@media (min-width: 768px) {
+  .login {
+    display: block; /* Change the display property to show the element */
+  }
 }

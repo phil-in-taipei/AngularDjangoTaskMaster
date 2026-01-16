@@ -266,7 +266,7 @@ export class AuthService { // testing out alternative version with subsription f
           // Start the token monitoring system
           this.startTokenExpirationTimer();
           
-          this.router.navigate(['authenticated-user', 'scheduling', 'landing']);
+          this.router.navigate(['authenticated-user', 'user-profile']);
         } else {
           this.loginErrorListener.next(true);
           this.authStatusListener.next(false);
