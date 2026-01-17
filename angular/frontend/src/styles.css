@@ -157,6 +157,15 @@ a:hover {
     display: none;
 }
 
+.small-scr {
+  display: none;
+}
+
+.small-and-med-scr {
+  display: none;
+}
+
+
 .logo {
         /* Set dimensions and circular shape */
   width: 400px;
@@ -180,4 +189,37 @@ a:hover {
   .login {
     display: block; /* Change the display property to show the element */
   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+
+  .hidden-small-and-medium {
+    display: none;
+  }
+
+  .small-and-med-scr {
+    display: block;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .hidden-small-and-medium {
+    display: none;
+  }
+
+  .small-and-med-scr {
+    display: block;
+  }
+
+  
+  .hidden-small {
+    display: none;
+  }
+  
+  .small-scr {
+    display: block;
+  }
+
 }

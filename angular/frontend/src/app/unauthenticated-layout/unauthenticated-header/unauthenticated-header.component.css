@@ -1,39 +1,39 @@
 .navbar-brand {
-    color: #758d97 !important;
+    color: #FFB6C1 !important;
   }
   
   .navbar-dark .navbar-nav > li > a:hover {
-      color: #004483;
+      color: #4682B4;
   }
   
   .navbar-dark .navbar-nav > .open > a:focus {
       background-color: black !important;
-      color: #758d97;
+      color:#FFB6C1;
   }
   
   .navbar-dark .navbar-nav > .open > a:hover {
-      color: #004483;
+      color: #4682B4;
   }
   
   .dropdown-menu {
       font-size: 1em;
-      color: #758d97;
+      color: #FFB6C1;
   }
 
 
   .navbar-dark .navbar-nav > li > a {
-    color: #758d97;
+    color: #FFB6C1;
   }
   
   .dropdown-item > li > a:hover {
-      color: #004483;
+      color: #4682B4;
   }
   
   .dropdown-menu > li > a {
-    color: #758d97;
+    color: #FFB6C1;
   }
   
   
   .mydropnav {
-      color: #758d97;
+      color: #FFB6C1;
   }
