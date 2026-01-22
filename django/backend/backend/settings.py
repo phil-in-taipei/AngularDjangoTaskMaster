@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'djoser',
     'authapp',
 
+    'single_task',
     'user_profiles',
 ]
 
