@@ -25,27 +25,25 @@
             </a>
           </li>
 
-          <li class="nav-item dropdown small-and-med-scr">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle mydropnav"
               href="#" id="navbarDropdown" role="button" 
               data-bs-toggle="dropdown" aria-expanded="false"
             >
-              Schools/Companies
+              Single
             </a>
             <ul class="dropdown-menu mydropnav bg-dark" 
               aria-labelledby="navbarDropdown">
-              <li>
-                <a class="dropdown-item bg-dark link-style"
-                  [routerLink]="['create-school']">Create New
-                </a>
+              <li><a class="dropdown-item bg-dark link-style" 
+                routerLink="/authenticated-user/create-task" routerLinkActive 
+                >Create</a>
               </li>
-              <li>
-                <a class="dropdown-item bg-dark link-style"
-                  [routerLink]="['users-schools']">View List
-                </a>
+              <li><a class="dropdown-item bg-dark link-style" 
+                routerLink="/authenticated-user/tasks-monthly" routerLinkActive 
+                >Search Monthly</a>
               </li>
             </ul>
-          </li> 
+          </li>
 
           <li class="nav-item dropdown small-and-med-scr">
             <a class="nav-link dropdown-toggle mydropnav"

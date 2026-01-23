@@ -1,0 +1,35 @@
+<form (submit)="onSubmitSingleTask(singleTaskForm)" #singleTaskForm="ngForm">
+  <label>Date</label>
+    <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+            name="date" [(ngModel)]="dateModel" ngbDatepicker #date="ngbDatepicker">
+        <div class="input-group-append">
+        <button class="btn btn-outline-dark calendar" (click)="date.toggle()" type="button">
+        Select Date</button>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Task Name</label>
+        <input
+        class="form-control"
+        type="text"
+        minlength="2"
+        rows="4"
+        name="taskName"
+        ngModel
+        required
+        placeholder="Please Enter a Task Name"
+        #taskName="ngModel"
+        >
+      <div *ngIf="taskName.touched && taskName.invalid">Please enter the task name.</div>
+    </div>
+    <br />
+    <hr class="thick-br"/>
+    <div>
+      <button class="btn btn-dark" type="submit"
+      >Submit</button>
+    </div>
+    <br />
+</form>
+

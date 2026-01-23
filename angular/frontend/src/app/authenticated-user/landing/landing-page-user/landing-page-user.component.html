@@ -1,0 +1,81 @@
+<br/><br/>
+<div class="container date-search">
+    <div class="text-center">
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp" [(ngModel)]="dateModel" ngbDatepicker #d="ngbDatepicker">
+            <br />
+            <div class="input-group-append">
+              <button class="btn btn-outline-dark calendar" (click)="d.toggle()" type="button">
+                Search Date
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
+<br />
+<div class="text-center">
+  <button class="btn btn-sm btn btn-dark middle"
+    (click)="navToSelectedDate()">Go To Scheduled Date
+  </button>
+</div>
+<div *ngIf="todaysTasks$ | async as todaysTasks" class="container">
+  <div class="m-3 p-2">
+
+  </div>
+  
+  <hr class="thick-br"/>
+  <h3>Today's Tasks</h3>
+  <h5>{{ todaysTasks.length }} Task(s) Scheduled Today</h5>
+  <h5>
+    <button class="btn btn-dark" type="button"
+      data-bs-toggle="collapse" data-bs-target="#collapseDailyTasks"
+      aria-expanded="false" aria-controls="collapseExample">
+      View Daily Tasks
+    </button>
+  </h5>
+  <div *ngIf="todaysTasks.length > 0"
+    id="collapseDailyTasks"
+    class="collapse table-responsive m-3 p-2"
+  >
+    <hr class="thick-br"/>
+    <table class="table">
+      <thead>
+        <tr class="row">
+          <th class="col"><p>Date</p></th>
+          <th class="col"><p>Name</p></th>
+          <th class="col"><p>Confirm Completion</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row" *ngFor="let task of todaysTasks">
+          <th class="col">
+            <p>{{ task.date }}</p>
+          </th>
+          <th class="col">
+            <p>{{ task.task_name }}</p>
+          </th>
+          <th *ngIf="task.status !== 'COMPLETED'" class="col">
+            <p (click)="onConfirmTaskCompletion(task.id)" 
+              class="confirm-style" id="confirmation"
+            >
+              {{task.status}}
+            </p>
+          </th>
+          <th *ngIf="task.status === 'COMPLETED'" class="col">
+            <p>{{ task.status }}</p>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr class="thick-br"/>
+  <div>
+    <app-uncompleted-tasks></app-uncompleted-tasks>
+  </div>
+</div>
+<br/><br/>

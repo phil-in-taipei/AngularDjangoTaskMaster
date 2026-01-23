@@ -1,0 +1,45 @@
+<div class="text-center">
+    <h3>Uncompleted Tasks</h3>
+    <h5>{{ uncompletedTasks.length }} Task(s)</h5>
+    <h5>
+        <button class="btn btn-dark" type="button"
+          data-bs-toggle="collapse" data-bs-target="#collapseUncompletedTasks"
+          aria-expanded="false">
+          View Uncompleted Tasks
+        </button>
+    </h5>
+    <div *ngIf="uncompletedTasks.length > 0"
+        id="collapseUncompletedTasks"
+        class="collapse table-responsive m-3 p-2"
+    >
+    <hr class="thick-br"/>
+    <table class="table">
+        <thead>
+          <tr class="row">
+            <th class="col"><p>Date</p></th>
+            <th class="col"><p>Name</p></th>
+            <th class="col"><p>Confirm Completion</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row" *ngFor="let task of uncompletedTasks">
+            <th class="col">
+              <p>{{ task.date }}</p>
+            </th>
+            <th class="col">
+              <p>{{ task.task_name }}</p>
+            </th>
+            <th class="col">
+              <p (click)="onConfirmTaskCompletionAndRemove(task.id)" 
+                class="confirm-style" id="confirm"
+              >
+                {{task.status}}
+              </p>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    
+    </div>
+    <hr class="thick-br"/>
+</div>

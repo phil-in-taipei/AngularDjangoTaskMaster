@@ -1,0 +1,30 @@
+h5, h3 {
+color: Black;
+text-align: center;
+}
+
+.table tr {
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  padding: 1em;
+}
+
+  
+.small-scr {
+  display: none;
+}
+  
+.capitalize {
+  text-transform: capitalize;
+}
+  
+@media screen and (max-width: 767px) {
+  .small-scr {
+    display: block;
+  }
+  
+  .large-scr {
+    display: none;
+  }
+  }

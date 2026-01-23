@@ -1,0 +1,85 @@
+<br />
+<div *ngIf="errMsg$ | async as errMsg" class="p-1 m-1">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <h3>{{ errMsg }}</h3>
+    <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+    data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <hr class="thick-br"/>
+</div>
+
+<div *ngIf="successMsg$ | async as successMsg" class="p-1 m-1">
+  <hr class="thick-br"/>
+  <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+    <h6>{{ successMsg }}</h6>
+    <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+    data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <hr class="thick-br"/>
+</div>
+<div *ngIf="(singleTask$ | async) as singleTask; else homepage_link">
+    <div>
+      <div class="text-center">
+        <button class="btn btn-sm btn-dark text" id="forwardDateButton" 
+        [routerLink]="['/', 'authenticated-user', 'tasks-daily', singleTask.date]">
+            Return to {{ singleTask.date }} Tasks
+        </button>
+      </div>
+    </div>
+    <div class="mt-1 p-3 rounded">
+        <div class="p-3 rounded-lg m-1">
+            <div class="container text-center">
+              <hr class="thick-br" />
+                <h1>Task Details</h1>
+                <hr class="thick-br" />
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Comments</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>{{ singleTask.date }}</td>
+                            <td> {{ singleTask.task_name }}</td>
+                            <td>{{ singleTask.comments }}</td>
+                            <td>{{ singleTask.status }}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br />
+            
+            <div class="d-grid gap-2">
+              <button (click)="toggleForm()"
+                class="btn btn-sm btn-dark">
+                  {{ formVisible ? "Nevermind, I'll update it later" : "Click Here to Reschedule" }}
+              </button>
+            </div>
+
+            <div class="container" [hidden]="!formVisible"
+            [style.opacity]="!formVisible ? '0' : '1'"
+            [style.visibility]="!formVisible ? 'hidden' : 'visible'">
+            <app-reschedule-task-form
+                [singleTask]=singleTask
+                (closeFormEvent)="closeFormHander($event)"
+            ></app-reschedule-task-form>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #homepage_link>
+    <hr class="thick-br"/>
+    <div class="text-center">
+      <button class="btn btn-sm btn-dark text"
+      [routerLink]="['/authenticated-user/landing']">
+          Return to Homepage
+      </button>
+    </div>
+    <hr class="thick-br"/>
+</ng-template>

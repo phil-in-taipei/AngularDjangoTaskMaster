@@ -17,6 +17,9 @@ import {
 import { AppState } from './../reducers';
 
 import { 
+  SingleTasksCleared 
+} from '../authenticated-user/tasks/single/state/single-task.actions';
+import { 
   UserProfileCleared 
 } from '../authenticated-user/user/user-state/user.actions';
 
@@ -137,6 +140,7 @@ export class AuthService { // testing out alternative version with subsription f
 
   private clearNgrxStore():void {
     this.store.dispatch(new UserProfileCleared());
+    this.store.dispatch(new SingleTasksCleared());
   }
 
   // public for testing purposes
@@ -265,8 +269,8 @@ export class AuthService { // testing out alternative version with subsription f
             
           // Start the token monitoring system
           this.startTokenExpirationTimer();
-          
-          this.router.navigate(['authenticated-user', 'user-profile']);
+          this.router.navigate(['authenticated-user', 'landing']);
+          //this.router.navigate(['authenticated-user', 'user-profile']);
         } else {
           this.loginErrorListener.next(true);
           this.authStatusListener.next(false);

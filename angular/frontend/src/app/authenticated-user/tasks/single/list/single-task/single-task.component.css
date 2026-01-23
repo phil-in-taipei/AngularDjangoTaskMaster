@@ -1,0 +1,12 @@
+.cross-out {
+    text-decoration: line-through;
+    color: #0098da;
+  }
+  
+.row {
+    text-align: center;
+}
+  
+.small-scr-tbl {
+    display: none;
+}

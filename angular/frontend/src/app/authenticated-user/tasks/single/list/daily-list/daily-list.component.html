@@ -1,0 +1,100 @@
+<br />
+<div class="large-scr row">
+    <div class="col text-center">
+      <button class="btn btn-sm btn-dark middle"
+        (click)="navToYsdtrdy()">Previous Day</button>
+    </div>
+    <div class="col">
+    <h3>Daily Schedule: {{ dateFromRouteData }}
+      </h3>
+    </div>
+    <div class="col text-center">
+      <button class="btn btn-sm btn-dark middle"
+      (click)="navToTmrrow()">Upcoming Day</button>
+    </div>
+  </div>
+  <div class="small-scr">
+    <h3>Daily Schedule: {{ dateFromRouteData }}</h3>
+    <div class="row">
+      <div class="col">
+        <div class="container">
+          <div class="d-grid gap-2">
+              <button class="btn btn-sm btn-outline-dark middle"
+              (click)="navToYsdtrdy()">Prev</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="container">
+          <div class="d-grid gap-2">
+            <button class="btn btn-sm btn-outline-dark middle"
+            (click)="navToTmrrow()">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<ng-container *ngIf="{value: tasksLoaded$ | async} as context">
+  <div *ngIf="context.value">
+    <div class="text-center">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <br />
+    </div>
+    <br />
+  </div>
+</ng-container>
+
+<div *ngIf="dailyTasks$ | async as todaysTasks" class="container">
+    <hr class="thick-br"/>
+    <h3>Today's Tasks</h3>
+    <h5>{{ todaysTasks.length }} Task(s) Scheduled</h5>
+    <div *ngIf="todaysTasks.length > 0; else no_daily"
+        class="table-responsive"
+      >
+        <table class="table">
+          <thead>
+            <tr class="row">
+              <th class="col"><p>Date</p></th>
+              <th class="col"><p>Name</p></th>
+              <th class="col"><p>Confirm Completion</p></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row" *ngFor="let task of todaysTasks">
+              <th class="col">
+                <p>{{ task.date }}</p>
+              </th>
+              <th class="col">
+                <p>
+                  <a [routerLink]="['/authenticated-user/task', task.id]">
+                    {{ task.task_name }}
+                  </a>
+                </p>
+              </th>
+              <th *ngIf="task.status !== 'COMPLETED'" class="col">
+                <p (click)="onConfirmTaskCompletion(task.id)" 
+                  class="confirm-style" id="confirm-link"
+                >
+                  {{task.status}}
+                </p>
+              </th>
+              <th *ngIf="task.status === 'COMPLETED'" class="col">
+                <p>{{ task.status }}</p>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #no_daily>
+        <div class="text-center m-3 p-2">
+          <button class="btn btn-md btn-dark text" id="forwardDateButton" 
+          [routerLink]="['/', 'authenticated-user', 'create-task']">
+              Click to Schedule a Task
+          </button>
+        </div>
+      </ng-template>
+      <hr class="thick-br"/>
+</div>

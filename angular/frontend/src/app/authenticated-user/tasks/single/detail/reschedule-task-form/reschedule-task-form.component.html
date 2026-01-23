@@ -1,0 +1,35 @@
+<br />
+<hr class="thick-br"/>
+<form (submit)="onSubmitSingleTask(singleTaskForm)" #singleTaskForm="ngForm">
+    <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+            name="date" [(ngModel)]="dateModel" ngbDatepicker #date="ngbDatepicker">
+        <div class="input-group-append">
+        <button class="btn btn-outline-dark calendar" (click)="date.toggle()" type="button">
+        Select Date</button>
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Comments</label>
+        <input
+        class="form-control"
+        type="text"
+        minlength="2"
+        rows="4"
+        name="comments"
+        ngModel
+        required
+        placeholder="Please Enter a Comment"
+        #comments="ngModel"
+        >
+      <div *ngIf="comments.touched && comments.invalid">Please enter a comment.</div>
+    </div>
+    <br />
+    <hr class="thick-br"/>
+    <div>
+      <button class="btn btn-dark" type="submit"
+      >Submit</button>
+    </div>
+    <br />
+</form>

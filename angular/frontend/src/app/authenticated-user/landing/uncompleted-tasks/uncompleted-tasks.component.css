@@ -1,0 +1,16 @@
+a {
+  text-decoration: none;
+}
+
+.table tr {
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  padding: 1em;
+}
+
+
+h5, h3 {
+  text-align: center;
+}
+

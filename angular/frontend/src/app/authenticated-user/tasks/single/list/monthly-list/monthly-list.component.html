@@ -1,0 +1,60 @@
+<div *ngIf="showMonthlySelectForm" class="container content">
+    <div>
+      <hr class="thick-br"/>
+      <div *ngIf="monthlyDateRange$ | async as monthlyDateRange;else no_previous_dates">
+        <h5>Reselect Monthly Spending Records</h5>
+          <app-reselect-monthly-tasks
+            [monthlyDateRange]=monthlyDateRange
+            (closeMonthlySelectFormEvent)="closeMonthlySelectFormHander($event)">
+          </app-reselect-monthly-tasks>
+      </div>
+      <ng-template #no_previous_dates>
+        <h5>Select Monthly Tasks</h5>
+          <app-select-monthly-tasks
+            (closeMonthlySelectFormEvent)="closeMonthlySelectFormHander($event)">
+          </app-select-monthly-tasks>
+      </ng-template>
+      <hr class="thick-br"/>
+    </div>
+</div>
+
+<ng-container *ngIf="{value: tasksLoaded$ | async} as context">
+    <div *ngIf="context.value">
+      <div class="text-center">
+        <div class="spinner-border text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <br />
+      </div>
+      <br />
+    </div>
+</ng-container>
+
+<div *ngIf="monthlyTasks$ | async as tasks" class="container content">
+    <div class="large-scr-tbl" [hidden]="showMonthlySelectForm"
+      [style.opacity]="showMonthlySelectForm ? '0' : '1'"
+      [style.visibility]="showMonthlySelectForm ? 'hidden' : 'visible'"
+      >
+      <hr class="thick-br"/>
+      <h3>Scheduled Tasks</h3>
+      <h5>{{ tasks.length }} Task(s) Scheduled This Month</h5>
+      <hr class="thick-br" />
+      <div class="large-scr-tbl">
+        <table class="table">
+            <thead>
+              <tr class="row">
+                <th class="col"><h5>Date</h5></th>
+                <th class="col"><h5>Task Name</h5></th>
+                <th class="col"><h5>Delete</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+              <div *ngFor="let singleTask of tasks; trackBy: trackByFn" >
+                <app-single-task [singleTask]=singleTask>
+                </app-single-task>
+              </div>
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<br />
+<div class="m-3 p-2">
+  <h3>Schedule a Task</h3>
+  <div *ngIf="singleTaskSubmitErrMsg$ | async as errMsg">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <h4 class="text-danger">{{ errMsg }}</h4>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  
+  <div *ngIf="singleTaskSubmitSuccessMsg$ | async as successMsg">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      <h6>{{ successMsg }}</h6>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="container">
+      <div>
+        <hr class="thick-br"/>
+        <app-create-task-form>
+        </app-create-task-form>
+        <hr class="thick-br"/>
+    </div>
+  </div>
+</div>

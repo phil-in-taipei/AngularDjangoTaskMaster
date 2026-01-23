@@ -1,0 +1,21 @@
+table {
+    border:1px solid Black;
+    border-collapse: collapse;
+}
+
+table tr {
+  border-left: 1px solid Black;
+  border-right: 1px solid Black;
+  border-bottom: 1pt solid Black;
+  padding: 1em;
+}
+
+table th {
+    padding: 1em;
+}
+
+table td {
+  border-left: 1px solid Black;
+  border-right: 1px solid Black;
+  padding: 1em;
+}
