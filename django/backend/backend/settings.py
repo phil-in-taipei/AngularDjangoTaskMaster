@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
     'single_task',
     'user_profiles',
+    'weekly_task',
 ]
 
 MIDDLEWARE = [
