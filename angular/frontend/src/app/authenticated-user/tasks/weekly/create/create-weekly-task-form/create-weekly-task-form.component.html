@@ -1,0 +1,45 @@
+<form (submit)="onSubmitWeeklyTask(weeklyTaskForm)" #weeklyTaskForm="ngForm">
+    <div>
+        <label>Day of Week</label>
+        <select
+        class="form-control"
+        name="dayOfWeek"
+        class="form-control"
+        ngModel
+        required
+        #dayOfWeek="ngModel"
+        >
+        <option *ngFor="let dayOfWeek of daysOfWeek"
+            [ngValue]=dayOfWeek
+        >{{ dayOfWeek }}
+        </option>
+        </select>
+        <div *ngIf="dayOfWeek.touched && dayOfWeek.invalid">
+          Please select a day of the week.
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Task Name</label>
+        <input
+        class="form-control"
+        type="text"
+        minlength="2"
+        rows="4"
+        name="weeklyTaskName"
+        ngModel
+        required
+        placeholder="Please Enter a Task Name"
+        #weeklyTaskName="ngModel"
+        >
+      <div *ngIf="weeklyTaskName.touched && weeklyTaskName.invalid">Please enter the task name.</div>
+    </div>
+    <br />
+    <hr class="thick-br"/>
+    <div>
+      <button class="btn btn-dark" type="submit"
+      >Submit</button>
+    </div>
+    <br />
+</form>
+

@@ -1,0 +1,45 @@
+<tr class="row" >
+    <th class="col">
+        <h5>
+            {{ weeklyTaskScheduler.day_of_week }}
+        </h5>
+    </th>
+    <th class="col">
+      <h5>
+        {{ weeklyTaskScheduler.weekly_task_name }}
+      </h5>
+    </th>
+    <th class="col">
+      <div *ngIf="!deletionPopupVisible; else delWeeklyTask" class="col text-left">
+        <h5>
+          <button
+            class="btn btn-sm btn-dark"
+            (click)="showDeletionPopup()"
+            >
+            Remove
+          </button>
+        </h5>
+      </div>
+      <ng-template #delWeeklyTask class="row">
+        <div class="col">
+          <h5>
+            <button
+              class="btn btn-sm btn-dark"
+              (click)="hideDeletionPopup()">
+              Cancel Deletion
+            </button>
+          </h5>
+        </div>
+        <div class="col">
+          <h5>
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="onRemoveTask()"
+              >
+              Confirm Removal
+            </button>
+          </h5>
+        </div>
+      </ng-template>
+    </th>
+</tr>

@@ -1,0 +1,45 @@
+<div *ngIf="errMsg$ | async as errMsg">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <h6 class="text-danger">{{ errMsg }}</h6>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<div *ngIf="successMsg$ | async as successMsg">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      <h4>{{ successMsg }}</h4>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<h5>Apply Weekly Scheduler</h5>
+<div *ngIf="weeklyTaskSchedulers$ | async as weeklyTaskSchedulers">
+  <form (submit)="onSubmitWTAQ(wTAQForm)" #wTAQForm="ngForm">
+    <div>
+      <label>Weekly Task Schedulers</label>
+      <select
+      name="weeklyScheduler"
+      class="form-control"
+      ngModel
+      required
+      #weeklyScheduler="ngModel"
+      >
+      <option *ngFor="let weeklyTaskScheduler of weeklyTaskSchedulers"
+          [value]=weeklyTaskScheduler.id
+      >{{ weeklyTaskScheduler.template_selector_string }}
+      </option>
+      </select>
+      <div *ngIf="weeklyScheduler.touched && weeklyScheduler.invalid">
+        Please select a valid weekly scheduler
+      </div>
+    </div>
+    <br />
+    <div>
+      <button class="btn btn-outline-dark" type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

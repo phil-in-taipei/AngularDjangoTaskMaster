@@ -1,0 +1,36 @@
+<ng-container *ngIf="{value: schedulersLoaded$ | async} as context">
+  <div *ngIf="!context.value">
+    <div class="text-center">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <br />
+    </div>
+    <br />
+  </div>
+</ng-container>
+
+<div *ngIf="weeklyTaskSchedulers$ | async as weeklyTaskSchedulers" class="container content">
+    <div class="mx-5 pd-2">
+      <hr class="thick-br"/>
+      <h3>Weekly Task Schedulers</h3>
+      <h5>{{ weeklyTaskSchedulers.length }} Weekly Task Schedulers(s)</h5>
+      <hr class="thick-br"/>
+      <table class="table table-border-less">
+          <thead class="table-border-less">
+            <tr class="row">
+              <th class="col"><h5>Day of Week</h5></th>
+              <th class="col"><h5>Task Name</h5></th>
+              <th class="col"><h5>Delete</h5></th>
+            </tr>
+          </thead>
+          <tbody class="table-border-less">
+            <div *ngFor="let weeklyTaskScheduler of weeklyTaskSchedulers; trackBy: trackByFn" >
+              <app-weekly-task [weeklyTaskScheduler]=weeklyTaskScheduler>
+              </app-weekly-task>
+            </div>
+          </tbody>
+      </table>
+      <hr class="thick-br"/>
+  </div>
+</div>

@@ -1,5 +1,14 @@
 import { DurationOptionsInterface } from "../models/time-related.model";
 
+export function getDayOfWeekInteger(dayOfWeekString: string): number {
+  const daysOfWeek: string[] = [ 
+    "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", 
+    "THURSDAY", "FRIDAY", "SATURDAY"
+  ];
+  return daysOfWeek.indexOf(dayOfWeekString);
+}
+
+
 export function calculateTimeStringsDifferenceinNumbers(
   time1: string, time2: string
 ): number {

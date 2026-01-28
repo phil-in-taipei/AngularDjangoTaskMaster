@@ -1,0 +1,64 @@
+
+<div class="container">
+  <div class=" m-3 p-2">
+    <hr class="thick-br"/>
+    <h2>Weekly Schedulers Applied for {{quarterFromRouteData }} {{ yearFromRouteData }}</h2>
+    <div class="text-center">
+      <button class="btn btn-sm btn-dark" type="button"
+        (click)="toggleApplySchedulerSubmitForm()">
+        {{ showApplySchedulerSubmitForm ? "Never Mind, I'll submit one next time for "
+        : "Click Here to apply a weekly scheduler to " }} {{ quarterFromRouteData }}
+      </button>
+      <br />
+    </div>
+    <hr class="thick-br"/>
+  </div>
+  
+  <div [hidden]="!showApplySchedulerSubmitForm"
+    [style.opacity]="!showApplySchedulerSubmitForm ? '0' : '1'"
+    [style.visibility]="!showApplySchedulerSubmitForm ? 'hidden' : 'visible'"
+    class="m-3 p-2"
+  >
+    <app-apply-weekly-scheduler-form
+      [quarter]=quarterFromRouteData
+      [year]=yearFromRouteData>
+    </app-apply-weekly-scheduler-form>
+    <hr class="thick-br"/>
+  </div>
+</div>
+
+<div *ngIf="wTAQ$ | async as wTAQs" 
+  [hidden]="showApplySchedulerSubmitForm"
+  [style.opacity]="showApplySchedulerSubmitForm ? '0' : '1'"
+  [style.visibility]="showApplySchedulerSubmitForm ? 'hidden' : 'visible'"
+  class="container"
+>
+  <div *ngIf="wTAQs.length > 0; else no_WTAQ" class="m-2 p-2">
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr class="row">
+                <th class="col"><h5>Weekly Task Applied Quarterly</h5></th>
+                <th class="col" id="edit"><h5>Remove</h5></th>
+              </tr>
+            </thead>
+            <tbody>
+            <div *ngFor="let wTAQ of wTAQs" >
+              <app-weekly-task-applied-quarterly
+                [weeklyTaskAppliedQuarterly]=wTAQ>
+              </app-weekly-task-applied-quarterly>
+            </div>
+            </tbody>
+          </table>
+    </div>
+    <hr class="thick-br"/>
+  </div>
+    <ng-template #no_WTAQ>
+      <div class="text-center m-3 p-2">
+        <h3>No Schedulers Applied to Current Quarter/Year</h3>
+        <hr class="thick-br"/>
+      </div>
+    </ng-template>
+    <br />
+</div>
+
