@@ -77,14 +77,14 @@ class WeeklyTaskAppliedQuarterlyViewSet(viewsets.ModelViewSet):
             )
 
             # Find all SingleTask instances that match
-            obsolete_tasks = SingleTask.objects.filter(
-                user_profile=weekly_task_scheduler.user_profile,
-                task_name=weekly_task_scheduler.weekly_task_name,
-                date__in=quarterly_task_date_list
-            )
+            #obsolete_tasks = SingleTask.objects.filter(
+            #    user_profile=weekly_task_scheduler.user_profile,
+            #    task_name=weekly_task_scheduler.weekly_task_name,
+            #    date__in=quarterly_task_date_list
+            #)
 
-            obsolete_task_strings = [str(task) for task in obsolete_tasks]
-            obsolete_task_ids = [task.id for task in obsolete_tasks]
+            #obsolete_task_strings = [str(task) for task in obsolete_tasks]
+            #obsolete_task_ids = [task.id for task in obsolete_tasks]
 
             # Delete the quarterly application
             quarterly_application.delete()
@@ -92,10 +92,10 @@ class WeeklyTaskAppliedQuarterlyViewSet(viewsets.ModelViewSet):
             return Response({
                 "message": "Weekly task application successfully deleted!",
                 "id": deleted_id,
-                "single_task_batch_deletion_data": {
-                    "obsolete_task_strings": ', '.join(obsolete_task_strings),
-                    "obsolete_task_ids": obsolete_task_ids
-                }
+                #"single_task_batch_deletion_data": {
+                #    "obsolete_task_strings": ', '.join(obsolete_task_strings),
+                #    "obsolete_task_ids": obsolete_task_ids
+                #}
             })
         except Exception as e:
             return Response(
