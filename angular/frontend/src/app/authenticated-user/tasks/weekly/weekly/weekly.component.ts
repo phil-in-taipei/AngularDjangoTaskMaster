@@ -18,6 +18,7 @@ export class WeeklyComponent implements OnInit {
   constructor(private store: Store<WeeklyTasksState>) { }
 
   ngOnInit(): void {
+    console.log('**************loading weekly task schedulers**************')
     this.store.dispatch(new WeeklyTaskSchedulersRequested());
   }
 }

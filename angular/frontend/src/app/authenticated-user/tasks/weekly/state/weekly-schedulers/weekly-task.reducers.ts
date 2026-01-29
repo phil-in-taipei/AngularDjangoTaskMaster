@@ -1,8 +1,6 @@
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
 import { WeeklyTaskModel } from 'src/app/models/weekly-task.model';
 
-import { getDayOfWeekInteger } from 'src/app/shared-utils/date-time.util';
-
 import { 
     WeeklyTaskActions, WeeklyTaskSchedulersActionTypes 
 } from './weekly-task.actions';
@@ -12,8 +10,8 @@ function compareWeeklyTasksByDayOfWeekAndName(
     b: WeeklyTaskModel
   ) {
     // First compare by day of week
-    const dayA = getDayOfWeekInteger(a.day_of_week);
-    const dayB = getDayOfWeekInteger(b.day_of_week);
+    const dayA = a.day_of_week;
+    const dayB = b.day_of_week;
     
     // If days are different, return the comparison result
     if (dayA !== dayB) {

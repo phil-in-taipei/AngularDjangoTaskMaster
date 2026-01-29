@@ -33,7 +33,7 @@
               <p (click)="onConfirmTaskCompletionAndRemove(task.id)" 
                 class="confirm-style" id="confirm"
               >
-                {{task.status}}
+                {{ task.status.charAt(0).toUpperCase() + task.status.slice(1) }}
               </p>
             </th>
           </tr>

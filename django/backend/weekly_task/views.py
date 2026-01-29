@@ -152,9 +152,10 @@ class WeeklyTaskSchedulerViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """Create a new weekly task scheduler."""
+
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-
+        
         try:
             # Automatically set user_profile from authenticated user
             new_scheduler = serializer.save(

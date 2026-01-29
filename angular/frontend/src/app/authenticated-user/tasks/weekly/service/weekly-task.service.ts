@@ -32,7 +32,7 @@ export class WeeklyTaskService {
     return this.http.post<WeeklyTaskAppliedQuarterlyModel>(
       `${environment.apiUrl}/api/weekly-task/applied-quarterly/`, submissionForm,
       {
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+        headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
       });
   }
 
@@ -43,7 +43,7 @@ export class WeeklyTaskService {
     return this.http.delete<DeletionResponse>(
       `${environment.apiUrl}/api/weekly-task/scheduler/${id}/`,
         {
-          headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+          headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
         })
     }
 
@@ -55,7 +55,7 @@ export class WeeklyTaskService {
     return this.http.delete<DeletionResponse>(
       `${environment.apiUrl}/api/weekly-task/applied-quarterly/${id}/`,
         {
-          headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+          headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
         })
   } 
 
@@ -64,7 +64,7 @@ export class WeeklyTaskService {
     return this.http.get<WeeklyTaskModel[]>(
       `${environment.apiUrl}/api/weekly-task/schedulers/`,
       {
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+        headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
       });
   }
 
@@ -76,7 +76,7 @@ export class WeeklyTaskService {
     return this.http.get<WeeklyTaskAppliedQuarterlyModel[]>(
       `${environment.apiUrl}/api/weekly-task/applied-quarterly/${quarter}/${year}/`,
       {
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+        headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
       });
   }
  
@@ -85,10 +85,13 @@ export class WeeklyTaskService {
     submissionForm: WeeklyTaskCreateModel
     ): Observable<WeeklyTaskModel> {
     let token = this.authService.getAuthToken();
+    console.log('trying to submit the weekly task scheduler')
+    console.log(submissionForm)
+    console.log("***************************************************")
     return this.http.post<WeeklyTaskModel>(
       `${environment.apiUrl}/api/weekly-task/scheduler/`, submissionForm,
       {
-        headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+        headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
       });
   }
 }

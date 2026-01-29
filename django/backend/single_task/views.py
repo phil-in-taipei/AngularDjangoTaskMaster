@@ -13,14 +13,14 @@ from .serializers import SingleTaskSerializer
 class SingleTaskConfirmCompletionView(APIView):
     """
     Endpoint to confirm task completion.
-    PATCH /api/task/confirm/<id>/
+    POST /api/single-task/confirm/<id>/
     """
     permission_classes = (IsAuthenticated,)
 
-    def patch(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         task_id = kwargs.get('id')
         task = get_object_or_404(SingleTask, id=task_id)
-
+        
         try:
             task.status = 'completed'
             task.save()

@@ -11,7 +11,7 @@ class WeeklyTaskSchedulerSerializer(serializers.ModelSerializer):
         model = WeeklyTaskScheduler
         fields = (
             'id', 'weekly_task_name', 'day_of_week',
-            'user_profile', 'day_of_week_string',
+            'day_of_week_string',
             'template_selector_string'
         )
 

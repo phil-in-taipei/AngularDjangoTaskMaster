@@ -14,12 +14,13 @@ export interface WeeklyTaskAppliedQuarterlyModel {
 
 export interface WeeklyTaskCreateModel {
     weekly_task_name: string;
-    day_of_week: string;
+    day_of_week: number;
 }
 
 export interface WeeklyTaskModel {
     id: number;
     weekly_task_name: string;
-    day_of_week: string;
+    day_of_week: number;
+    day_of_week_string: string;
     template_selector_string: string;
 }

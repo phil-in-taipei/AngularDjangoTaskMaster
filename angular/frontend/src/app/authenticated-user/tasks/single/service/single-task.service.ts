@@ -24,12 +24,13 @@ export class SingleTaskService {
 
   confirmTaskCompletion(id: number): Observable<SingleTaskModel> {
     let token = this.authService.getAuthToken();
-    return this.http.get<SingleTaskModel>(
+    return this.http.post<SingleTaskModel>(
       `${environment.apiUrl}/api/single-task/confirm/${id}/`,
-        {
-          headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
-        })
-    }
+      {}, // Empty body as second parameter
+      {
+        headers: new HttpHeaders({ 'Authorization': `Token ${token}` })
+      })
+  }
 
   deleteSingleTask(
     id: number

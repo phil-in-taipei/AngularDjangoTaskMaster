@@ -45,6 +45,7 @@ export class CreateWeeklyTaskFormComponent {
       day_of_week: form.value.dayOfWeek,
       weekly_task_name: form.value.weeklyTaskName,
     }
+    console.log(`This is the submission form: ${submissionForm}`)
     this.store.dispatch(new WeeklyTaskSchedulerCreateSubmitted(
       { weeklyTask: submissionForm }
     ));
