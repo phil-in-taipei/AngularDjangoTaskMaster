@@ -24,5 +24,6 @@ urlpatterns = [
     path('auth/', include('authapp.urls')),
     path('api/profiles/', include('user_profiles.urls')),
     path('api/single-task/', include('single_task.urls')),
+    path('api/monthly-task/', include('monthly_task.urls')),
     path('api/weekly-task/', include('weekly_task.urls')),
 ]
