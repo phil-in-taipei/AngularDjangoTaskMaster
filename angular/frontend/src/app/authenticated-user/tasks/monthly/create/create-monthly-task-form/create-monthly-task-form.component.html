@@ -1,0 +1,47 @@
+<form (submit)="onSubmitMonthlyTask(monthlyTaskForm)" #monthlyTaskForm="ngForm">
+    <div>
+        <label>Day of Month</label>
+        <input
+        class="form-control"
+        type="number"
+        min="1"
+        max="28"
+        rows="4"
+        name="dayOfMonth"
+        ngModel
+        required
+        placeholder="1"
+        #dayOfMonth="ngModel"
+        >
+        <div *ngIf="dayOfMonth.touched && dayOfMonth.invalid">
+          Please select a day of the month.
+        </div>
+    </div>
+    <br />
+    <div>
+        <label>Task Name</label>
+        <input
+        class="form-control"
+        type="text"
+        minlength="2"
+        rows="4"
+        name="monthlyTaskName"
+        ngModel
+        required
+        placeholder="Please Enter a Task Name"
+        #monthlyTaskName="ngModel"
+        >
+      <div *ngIf="monthlyTaskName.touched && monthlyTaskName.invalid">
+        Please enter the task name.
+    </div>
+    </div>
+    <br />
+    <hr class="thick-br" />
+    <div>
+      <button class="btn btn-dark" type="submit"
+      >Submit</button>
+    </div>
+    <br />
+</form>
+
+

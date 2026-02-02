@@ -1,0 +1,46 @@
+<div *ngIf="errMsg$ | async as errMsg">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <h6 class="text-danger">{{ errMsg }}</h6>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+  
+<div *ngIf="successMsg$ | async as successMsg">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      <h4>{{ successMsg }}</h4>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<h5>Apply Monthly Scheduler</h5>
+<div *ngIf="monthlyTaskSchedulers$ | async as monthlyTaskSchedulers" class="monthly-apply-form">
+  <form (submit)="onSubmitMTAQ(mTAQForm)" #mTAQForm="ngForm">
+    <div>
+      <label>Monthly Task Schedulers</label>
+      <select
+      name="monthlyScheduler"
+      class="form-control"
+      ngModel
+      required
+      #monthlyScheduler="ngModel"
+      >
+      <option *ngFor="let monthlyTaskScheduler of monthlyTaskSchedulers"
+          [value]=monthlyTaskScheduler.id
+      >{{ monthlyTaskScheduler.template_selector_string }}
+      </option>
+      </select>
+      <div *ngIf="monthlyScheduler.touched && monthlyScheduler.invalid">
+        Please select a valid monthly scheduler
+      </div>
+    </div>
+    <br />
+    <div>
+      <button class="btn btn-outline-dark" type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+  

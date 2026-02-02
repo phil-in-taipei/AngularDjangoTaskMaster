@@ -1,0 +1,46 @@
+<div class="m-3 p-2">
+  <div class="container">
+    <h2 class="text-center">Select Quarter for Applied Monthly Schedulers</h2>
+    <form (submit)="onQuarterYearNav(quarterYearNavForm)"
+      #quarterYearNavForm="ngForm">
+      <div>
+        <label>Quarter</label>
+          <select
+          class="form-control"
+          name="quarter"
+          class="form-control"
+          ngModel
+          required
+          #quarter="ngModel"
+          >
+          <option *ngFor="let opt of quarterlyOptions"
+              [value]=opt[1]
+          >{{ opt[0] }}</option>
+          </select>
+      </div>
+      <br />
+      <div>
+        <label>Year</label>
+          <select
+          class="form-control"
+          name="year"
+          class="form-control"
+          ngModel
+          required
+          #year="ngModel"
+          >
+          <option *ngFor="let year of years"
+            [value]=year
+          >{{ year }}</option>
+          </select>
+      </div>
+      <br />
+      <div>
+        <button class="btn btn-dark" type="submit">
+            Submit
+        </button>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>

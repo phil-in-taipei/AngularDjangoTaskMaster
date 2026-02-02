@@ -1,0 +1,27 @@
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+
+.table tr {
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 0px;
+  padding: 1em;
+}
+
+.small-scr-tbl {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  #edit {
+    display: none;
+  }
+  .large-scr-tbl {
+    display: none;
+  }
+  .small-scr-tbl {
+    display: block;
+  }
+}
