@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from typing import List
 import random
 
+from single_task.models import SingleTask
 from weekly_task.utils import get_first_day_of_week_by_year_and_quarter
 
 
@@ -88,3 +89,53 @@ def get_interval_scheduling_dates_by_quarter(
             date_in_quarter = date_in_quarter + timedelta(days=interval)
     
     return dates
+
+
+def generate_task_batch_by_date_list_and_interval_task_list(
+        interval_task_group, scheduling_dates: List[date]
+) -> List[SingleTask]:
+    """
+    Generates a batch of SingleTask instances by cycling through interval tasks.
+    
+    For each date, assigns the next task in the interval task group's task list,
+    cycling back to the first task when the end of the list is reached.
+    
+    Args:
+        interval_task_group: IntervalTaskGroup instance with related interval_tasks
+        scheduling_dates: List of dates on which to schedule tasks
+    
+    Returns:
+        List of SingleTask instances (not yet saved to database)
+    """
+    # Get the list of interval tasks in this group
+    interval_tasks = list(interval_task_group.interval_tasks.all())
+    length_of_interval_tasks = len(interval_tasks)
+    
+    # Track the last index to know when to reset
+    last_index_in_interval_task_list = length_of_interval_tasks - 1
+    
+    batch_of_tasks = []
+    index_of_interval_task_list = 0
+    
+    for task_date in scheduling_dates:
+        # Get the current interval task
+        interval_task = interval_tasks[index_of_interval_task_list]
+        
+        # Create a SingleTask with this interval task's name
+        single_task = SingleTask(
+            task_name=interval_task.interval_task_name,
+            date=task_date,
+            user_profile=interval_task_group.task_group_owner,
+            status='pending'
+        )
+        
+        batch_of_tasks.append(single_task)
+        
+        # Cycle through the interval task list
+        if index_of_interval_task_list == last_index_in_interval_task_list:
+            # End of the list reached, reset to zero
+            index_of_interval_task_list = 0
+        else:
+            index_of_interval_task_list += 1
+    
+    return batch_of_tasks
