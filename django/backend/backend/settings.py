@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'djoser',
     'authapp',
 
+    'interval_task_group',
     'monthly_task',
     'single_task',
     'user_profiles',
