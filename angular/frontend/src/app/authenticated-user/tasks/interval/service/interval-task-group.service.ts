@@ -30,7 +30,7 @@ export class IntervalTaskGroupService {
   ): Observable<IntervalTaskGroupAppliedQuarterlyModel>  {
     let token = this.authService.getAuthToken();
     return this.http.post<IntervalTaskGroupAppliedQuarterlyModel>(
-      `${environment.apiUrl}/api/interval/apply-quarterly`, submissionForm,
+      `${environment.apiUrl}/api/interval-task/apply-quarterly/`, submissionForm,
       {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
       });
@@ -41,7 +41,7 @@ export class IntervalTaskGroupService {
     ): Observable<DeletionResponse> {
     let token = this.authService.getAuthToken();
     return this.http.delete<DeletionResponse>(
-    `${environment.apiUrl}/api/interval/delete-group/${id}`,
+    `${environment.apiUrl}/api/interval-task/group/${id}/`,
     {
     headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
     })
@@ -52,7 +52,7 @@ export class IntervalTaskGroupService {
   ): Observable<DeletionResponse> {
     let token = this.authService.getAuthToken();
     return this.http.delete<DeletionResponse>(
-      `${environment.apiUrl}/api/interval/delete-applied-quarterly/${id}`,
+      `${environment.apiUrl}/api/interval-task/applied-quarterly/${id}/`,
         {
           headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
         })
@@ -65,7 +65,7 @@ export class IntervalTaskGroupService {
     ): Observable<IntervalTaskGroupModel> {
     let token = this.authService.getAuthToken();
     return this.http.delete<IntervalTaskGroupModel>(
-    `${environment.apiUrl}/api/interval/delete-scheduler/${intervalTaskId}/${taskGroupId}`,
+    `${environment.apiUrl}/api/interval-task/delete-scheduler/${intervalTaskId}/${taskGroupId}/`,
     {
     headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
     })
@@ -74,7 +74,7 @@ export class IntervalTaskGroupService {
   fetchIntervalTaskGroups(): Observable<IntervalTaskGroupModel[]> {
     let token = this.authService.getAuthToken();
     return this.http.get<IntervalTaskGroupModel[]>(
-    `${environment.apiUrl}/api/interval/groups`,
+    `${environment.apiUrl}/api/interval-task/groups/`,
     {
     headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
     });
@@ -85,7 +85,7 @@ export class IntervalTaskGroupService {
   ): Observable<IntervalTaskGroupAppliedQuarterlyModel[]> {
     let token = this.authService.getAuthToken();
     return this.http.get<IntervalTaskGroupAppliedQuarterlyModel[]>(
-      `${environment.apiUrl}/api/interval/applied-quarterly/${quarter}/${year}`,
+      `${environment.apiUrl}/api/interval-task/applied-quarterly/${quarter}/${year}/`,
       {
         headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
       });
@@ -96,7 +96,7 @@ export class IntervalTaskGroupService {
     ): Observable<IntervalTaskGroupModel> {
     let token = this.authService.getAuthToken();
     return this.http.post<IntervalTaskGroupModel>(
-    `${environment.apiUrl}/api/interval/create-group`, submissionForm,
+    `${environment.apiUrl}/api/interval-task/group/`, submissionForm,
     {
     headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
     });
@@ -109,7 +109,7 @@ export class IntervalTaskGroupService {
     ): Observable<IntervalTaskGroupModel> {
     let token = this.authService.getAuthToken();
     return this.http.post<IntervalTaskGroupModel>(
-    `${environment.apiUrl}/api/interval/create-scheduler`, submissionForm,
+    `${environment.apiUrl}/api/interval-task/create-scheduler/`, submissionForm,
     {
     headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
     });

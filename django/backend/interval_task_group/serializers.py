@@ -3,23 +3,24 @@ from rest_framework import serializers
 from .models import IntervalTaskGroup, IntervalTaskScheduler, IntervalTaskGroupAppliedQuarterly
 
 
-class IntervalTaskGroupSerializer(serializers.ModelSerializer):
-    template_selector_string = serializers.ReadOnlyField()
-    
-    class Meta:
-        model = IntervalTaskGroup
-        fields = (
-            'id', 'task_group_name', 'interval_in_days',
-            'template_selector_string'
-        )
-
-
 class IntervalTaskSchedulerSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = IntervalTaskScheduler
         fields = (
             'id', 'interval_task_name', 'interval_task_group'
+        )
+
+class IntervalTaskGroupSerializer(serializers.ModelSerializer):
+    template_selector_string = serializers.ReadOnlyField()
+    # Add nested serializer for the related interval tasks
+    interval_tasks = IntervalTaskSchedulerSerializer(many=True, read_only=True)
+    
+    class Meta:
+        model = IntervalTaskGroup
+        fields = (
+            'id', 'task_group_name', 'interval_in_days',
+            'template_selector_string', 'interval_tasks'
         )
 
 
