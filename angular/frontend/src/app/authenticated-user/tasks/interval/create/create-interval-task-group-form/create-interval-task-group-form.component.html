@@ -1,0 +1,44 @@
+<form (submit)="onSubmitIntervalTaskGroup(iTGForm)" #iTGForm="ngForm">
+    <div>
+        <label>Task Name</label>
+        <input
+        class="form-control"
+        type="text"
+        minlength="2"
+        rows="4"
+        name="taskGroupName"
+        ngModel
+        required
+        placeholder="Please Enter a Task Name"
+        #taskGroupName="ngModel"
+        >
+      <div *ngIf="taskGroupName.touched && taskGroupName.invalid">
+        Please enter the task name.
+      </div>
+    </div>
+    <br />
+    <div>
+        <label>Interval In Days</label>
+        <input
+        class="form-control"
+        type="number"
+        min="1"
+        max="45"
+        rows="4"
+        name="intervalInDays"
+        ngModel
+        required
+        placeholder="1"
+        #intervalInDays="ngModel"
+        >
+        <div *ngIf="intervalInDays.touched && intervalInDays.invalid">
+          Please enter the daily interval.
+        </div>
+    </div>
+    <hr />
+    <div>
+      <button class="btn btn-dark" type="submit"
+      >Submit</button>
+    </div>
+    <br />
+</form>

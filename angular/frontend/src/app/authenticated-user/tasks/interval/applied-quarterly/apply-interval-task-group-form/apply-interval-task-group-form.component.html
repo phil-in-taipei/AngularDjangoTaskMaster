@@ -1,0 +1,46 @@
+<div *ngIf="errMsg$ | async as errMsg">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <h6 class="text-danger">{{ errMsg }}</h6>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<div *ngIf="successMsg$ | async as successMsg">
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      <h4>{{ successMsg }}</h4>
+      <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
+      data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
+<h5>Apply Interval Task Group</h5>
+<div *ngIf="intervalTaskGroups$ | async as intervalTaskGroups">
+  <form (submit)="onSubmitITGAQ(itgaqForm)" #itgaqForm="ngForm">
+    <div>
+      <label>Interval Task Groups</label>
+      <select
+      name="intervalTaskGroup"
+      class="form-control"
+      ngModel
+      required
+      #intervalTaskGroup="ngModel"
+      >
+      <option *ngFor="let intervalTaskGroup of intervalTaskGroups"
+          [value]=intervalTaskGroup.id
+      >{{ intervalTaskGroup.templateSelectorString }}
+      </option>
+      </select>
+      <div *ngIf="intervalTaskGroup.touched && intervalTaskGroup.invalid">
+        Please select a valid interval task group
+      </div>
+    </div>
+    <br />
+    <div>
+      <button class="btn btn-outline-dark" type="submit">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+

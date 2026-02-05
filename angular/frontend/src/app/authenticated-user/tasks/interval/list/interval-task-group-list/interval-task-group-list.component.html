@@ -1,0 +1,38 @@
+<ng-container *ngIf="{value: intervalTaskGroupsLoaded$ | async} as context">
+  <div *ngIf="!context.value">
+    <div class="text-center">
+      <div class="spinner-border text-secondary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <br />
+    </div>
+    <br />
+  </div>
+</ng-container>
+
+<div *ngIf="intervalTaskGroups$ | async as tasks" class="container content">
+    <div class="large-scr-tbl mx-5 pd-2">
+      <hr class="thick-br"/>
+      <h3>Interval Task Groups</h3>
+      <h5>{{ tasks.length }} Interval Task Group(s)</h5>
+      <hr class="thick-br"/>
+      <div class="large-scr-tbl">
+        <table class="table">
+          <thead>
+            <tr class="row">
+              <th class="col"><h5>Task Group Name</h5></th>
+              <th class="col"><h5>Interval in Days</h5></th>
+              <th class="col"><h5>Delete</h5></th>
+            </tr>
+          </thead>
+          <tbody>
+            <div *ngFor="let intervalTaskGroup of tasks; trackBy: trackByFn">
+              <app-interval-task-group [intervalTaskGroup]=intervalTaskGroup>
+              </app-interval-task-group>
+            </div>
+          </tbody>
+        </table>
+        <hr class="thick-br"/>
+      </div>
+    </div>
+  </div>

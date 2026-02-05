@@ -1,0 +1,42 @@
+<tr class="row" >
+    <th class="col">
+      <h5>
+        <app-interval-task-group-template-string
+          [intervalTaskGroupId]=intervalTaskGroupAppliedQuarterly.intervalTaskGroupId>
+        </app-interval-task-group-template-string>
+      </h5>
+    </th>
+    <th class="col">
+      <div *ngIf="!deletionPopupVisible; else delIntervalTaskGroup" class="col text-left">
+        <h5>
+          <button
+            class="btn btn-sm btn-outline-dark"
+            (click)="showDeletionPopup()"
+            >
+            Remove
+          </button>
+        </h5>
+      </div>
+      <ng-template #delIntervalTaskGroup class="row">
+        <div class="col">
+          <h5>
+            <button
+              class="btn btn-sm btn-outline-dark"
+              (click)="hideDeletionPopup()">
+              Cancel Deletion
+            </button>
+          </h5>
+        </div>
+        <div class="col">
+          <h5>
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="onRemoveITGAQ()"
+              >
+              Confirm Removal
+            </button>
+          </h5>
+        </div>
+      </ng-template>
+    </th>
+</tr>
