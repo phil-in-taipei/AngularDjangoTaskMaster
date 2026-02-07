@@ -39,8 +39,8 @@ export class CreateIntervalTaskFormComponent {
       return;
     }
     let submissionForm: IntervalTaskCreateModel = {
-      intervalTaskGroupId: this.intervalTaskGroupId,
-      intervalTaskName: form.value.taskName,
+      interval_task_group: this.intervalTaskGroupId,
+      interval_task_name: form.value.taskName,
     }
     this.store.dispatch(new IntervalTaskSchedulerCreateSubmitted(
       { intervalTask: submissionForm }

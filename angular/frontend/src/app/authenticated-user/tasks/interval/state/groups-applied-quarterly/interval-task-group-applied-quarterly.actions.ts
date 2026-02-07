@@ -3,9 +3,13 @@ import { Action } from '@ngrx/store';
 import {
     IntervalTaskGroupAppliedQuarterlyModel
 } from 'src/app/models/interval-task-group.model';
-import {
-    ApplyBatchSchedulerModel
-} from 'src/app/models/apply-batch-schedulers-request.model';
+//import {
+//    ApplyBatchSchedulerModel
+//} from 'src/app/models/apply-batch-schedulers-request.model';
+import { 
+    ApplyIntervalTaskGroupSchedulersModel 
+} from 'src/app/models/interval-task-group.model';
+
 
 export enum IntervalTaskGroupAppliedQuarterlyActionTypes {
     IntervalTaskGroupAppliedQuarterlysCleared = '[View User Logout] All Interval Task Group Applied Quarterlys Removed',
@@ -57,7 +61,7 @@ export enum IntervalTaskGroupAppliedQuarterlyActionTypes {
 
     constructor(
         public payload: { 
-            intervalTaskGroupAppliedQuarterly: ApplyBatchSchedulerModel 
+            intervalTaskGroupAppliedQuarterly: ApplyIntervalTaskGroupSchedulersModel 
         }
     ){}
    };

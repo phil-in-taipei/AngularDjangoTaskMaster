@@ -95,6 +95,33 @@
             </ul>
           </li>
 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle mydropnav"
+              href="#" id="navbarDropdown" 
+              role="button" data-bs-toggle="dropdown" 
+              aria-expanded="false"
+            >
+              Interval
+            </a>
+            <ul class="dropdown-menu mydropnav bg-dark" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item bg-dark link-style" 
+                routerLink="/authenticated-user/interval/create" routerLinkActive 
+                >Create</a>
+              </li>
+              <li><a class="dropdown-item bg-dark link-style" 
+                routerLink="/authenticated-user/interval/list" routerLinkActive 
+                >List</a>
+              </li>
+              <li>
+                <a class="dropdown-item bg-dark link-style" 
+                  routerLink="/authenticated-user/interval/select-quarterly" routerLinkActive 
+                >Quarterly
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
           <li><a class="nav-link" 
             [routerLink]="['user-profile']">Profile</a>
           </li>         

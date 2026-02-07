@@ -28,7 +28,7 @@
       >
       <option *ngFor="let intervalTaskGroup of intervalTaskGroups"
           [value]=intervalTaskGroup.id
-      >{{ intervalTaskGroup.templateSelectorString }}
+      >{{ intervalTaskGroup.template_selector_string }}
       </option>
       </select>
       <div *ngIf="intervalTaskGroup.touched && intervalTaskGroup.invalid">

@@ -18,6 +18,9 @@ const routes: Routes = [
       { path: 'tasks-monthly', component: MonthlyListComponent },
       { path: 'landing', component: LandingPageComponent },
       { path: 'user-profile', component: UserProfileComponent },
+      { path: 'interval', loadChildren: () => import('./tasks/interval/interval.module')
+        .then(m => m.IntervalModule) 
+      },
       { path: 'monthly', loadChildren: () => import('./tasks/monthly/monthly.module')
         .then(m => m.MonthlyModule) 
       },

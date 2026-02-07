@@ -2,11 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
+import { 
+  ApplyIntervalTaskGroupSchedulersModel 
+} from 'src/app/models/interval-task-group.model';
 
-
-import {
-  ApplyBatchSchedulerModel
-} from 'src/app/models/apply-batch-schedulers-request.model';
+//import {
+//  ApplyBatchSchedulerModel
+//} from 'src/app/models/apply-batch-schedulers-request.model';
 import { 
   IntervalTaskGroupAppliedQuarterlyModel 
 } from 'src/app/models/interval-task-group.model';
@@ -79,8 +81,8 @@ export class ApplyIntervalTaskGroupFormComponent implements OnInit {
       }} ));
       form.reset();
     }
-    let submissionForm: ApplyBatchSchedulerModel = {
-        recurringTaskSchedulerId: form.value.intervalTaskGroup,
+    let submissionForm: ApplyIntervalTaskGroupSchedulersModel = {
+        interval_task_group: form.value.intervalTaskGroup,
         quarter: this.quarter,
         year: this.year
     }

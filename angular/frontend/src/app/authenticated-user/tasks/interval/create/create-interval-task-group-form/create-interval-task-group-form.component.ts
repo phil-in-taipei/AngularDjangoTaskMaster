@@ -36,8 +36,8 @@ export class CreateIntervalTaskGroupFormComponent {
       return;
     }
     let submissionForm: IntervalTaskGroupCreateModel = {
-      taskGroupName: form.value.taskGroupName,
-      intervalInDays: form.value.intervalInDays,
+      task_group_name: form.value.taskGroupName,
+      interval_in_days: form.value.intervalInDays,
     }
     this.store.dispatch(new IntervalTaskGroupCreateSubmitted(
       { intervalTaskGroup: submissionForm }
