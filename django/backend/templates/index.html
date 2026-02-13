@@ -3,13 +3,24 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>TaskMaster</title>
+  <title>Task Master</title>
   <base href="/">
+  <link rel="icon" type="image/x-icon" href="{% static 'angular/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static 'angular/styles.css' %}">
+  <!--{{ encryption_config|json_script:"encryption-config" }} -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 
 <body>
-
+  <app-root></app-root>
+    <script src="{% static 'angular/scripts.js' %}"></script>
+    <script src="{% static 'angular/runtime.js' %}"></script>
+    <script src="{% static 'angular/polyfills.js' %}"></script>
+    <script src="{% static 'angular/src_app_authenticated-user_tasks_weekly_weekly_module_ts.js' %}"></script>
+    <script src="{% static 'angular/src_app_authenticated-user_tasks_monthly_monthly_module_ts.js' %}"></script>
+    <script src="{% static 'angular/src_app_authenticated-user_tasks_interval_interval_module_ts.js' %}"></script>
+    <script src="{% static 'angular/src_app_authenticated-user_authenticated-user_module_ts.js' %}"></script>
+    <script src="{% static 'angular/main.js' %}"></script>
 </body>
 </html>

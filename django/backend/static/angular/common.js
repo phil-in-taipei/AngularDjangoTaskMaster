@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([["common"],{5491:(t,e,r)=>{r.d(e,{m:()=>u});const u=[["Quarter1","Q1"],["Quarter2","Q2"],["Quarter3","Q3"],["Quarter4","Q4"]]}}]);

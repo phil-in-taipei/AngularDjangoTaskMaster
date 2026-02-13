@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/single-task/', include('single_task.urls')),
     path('api/monthly-task/', include('monthly_task.urls')),
     path('api/weekly-task/', include('weekly_task.urls')),
+    re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
 ]
