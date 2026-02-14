@@ -3,31 +3,34 @@
     <div class="color-frame rounded">
         <div class="mt-4 p-5 rounded">
           <div *ngIf='passwordErrorMsg'>
+            <hr class="thin-br"/>
             <div 
               data-testid="password-confirmation-failure-msg"
               class="alert alert-danger alert-dismissible fade show" role="alert"
             >
-              <h3 class="text-center">{{ passwordErrorMsg }}</h3>
+              <h5 class="text-center">{{ passwordErrorMsg }}</h5>
               <button type="button" class="btn-close" (click)="onClearFormPasswordError()"
               data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           </div>
           <div *ngIf='apiErrorMsg'>
+            <hr class="thin-br"/>
             <div 
               data-testid="registration-api-failure-msg"
               class="alert alert-danger alert-dismissible fade show" role="alert"
             >
-              <h3 class="text-center">{{ apiErrorMsg }}</h3>
+              <h5 class="text-center">{{ apiErrorMsg }}</h5>
               <button type="button" class="btn-close" (click)="onClearApiError()"
               data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           </div>
           <div *ngIf="apiSuccessResponse" class="container">
             <div *ngIf="apiSuccessResponse.message">
+              <hr class="thin-br"/>
                 <div data-testid="registration-success-msg"
                   class="alert alert-primary alert-dismissible fade show" 
                   role="alert">
-                  <h3 class="text-center">{{ apiSuccessResponse.message }}</h3>
+                  <h5 class="text-center">{{ apiSuccessResponse.message }}</h5>
                   <button type="button" class="btn-close" (click)="onClearApiSuccessResponse()"
                   data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -146,7 +149,7 @@
                 </div>
                 <br />
                 <div>
-                  <button class="btn btn-outline-secondary" 
+                  <button class="btn btn-outline-dark" 
                   type="submit" data-testid="registration-submit"
                   >Sign Up!</button>
                 </div>

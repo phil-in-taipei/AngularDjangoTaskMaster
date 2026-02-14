@@ -12,16 +12,18 @@
     </ng-container>
     <div *ngIf="usrProfile$ | async as profile" class="container">
         <div *ngIf="userProfileSubmitErrMsg$ | async as errMsg">
+          <hr class="thin-br"/>
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <h4 class="text-danger">{{ errMsg }}</h4>
+              <h5 class="text-center">{{ errMsg }}</h5>
               <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
               data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
           </div>
           
           <div *ngIf="userProfileSubmitSuccessMsg$ | async as successMsg">
+            <hr class="thin-br"/>
             <div class="alert alert-secondary alert-dismissible fade show" role="alert">
-              <h6>{{ successMsg }}</h6>
+              <h5 class="text-center">{{ successMsg }}</h5>
               <button type="button" class="btn-close" (click)="onClearStatusMsgs()"
               data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
@@ -51,7 +53,7 @@
             </table>
             <hr />
             <div class="d-grid gap-2">
-                <button class="btn btn-sm btn-outline-secondary" type="button" (click)="toggleForm()">
+                <button class="btn btn-sm btn-outline-dark" type="button" (click)="toggleForm()">
                   {{ showForm ? "No thanks, I'll Edit My Profile Later" : "Edit Profile" }}
                 </button>
             </div>
