@@ -2,7 +2,11 @@
 <div class="main">
 
 <div class="container content">
-  <div class="color-frame rounded row">
+  <div class="color-frame rounded">
+    <div class="row">
+
+
+    
     <div class="mt-4 p-5 rounded col">
       <div *ngIf='isErrorLogin'>
         <div data-testid="login-error-msg"
@@ -55,7 +59,7 @@
           <br />
           <div>
             <button 
-              class="btn btn-outline-dark" 
+              class="btn btn-dark" 
               type="submit" 
               data-testid="login-submit"
               [disabled]="isLoading || loginForm.invalid">
@@ -80,6 +84,7 @@
       <hr class="thin-br"/>
       <br />
       <br />
+    </div>
     </div>
   </div>
   <br />
