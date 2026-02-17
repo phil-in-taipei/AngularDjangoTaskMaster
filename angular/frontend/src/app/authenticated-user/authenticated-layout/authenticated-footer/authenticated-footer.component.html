@@ -1,19 +1,25 @@
 <div class="mt-5">
     <footer
-        class="text-center text-lg-start footer-styles"
+        class="text-center text-lg-start"
     >
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: Links -->
-        <section class="">
+        <section class="footer-styles">
           <!--Grid row-->
           <div class="row">
             <!-- Grid column -->
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3 app-info">
-              <h6 class="text-uppercase mb-4 font-weight-bold text-center">
-                Task Master
-              </h6>
-              <p class="text-center">A Task Management System</p>
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <p>
+                <a class="link-style" routerLink="/authenticated-user/tasks-monthly" 
+                >Tasks</a>
+              </p>
+              <p>
+                <a class="link-style" routerLink="/authenticated-user/user-profile" href="#">Profile</a>
+              </p>
+              <p>
+                <a class="link-style" href="#" (click)="onLogout()">Logout</a>
+              </p>
             </div>
             <!-- Grid column -->
   
@@ -21,46 +27,36 @@
   
             <!-- Grid column -->
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
-              <p class="text-center">
-                <a routerLink="/authenticated-user/landing" href="#">Home</a>
+              <p>
+                <a class="link-style" routerLink="/authenticated-user/interval/list" 
+                >Interval</a>
               </p>
-              <p class="text-center">
-                <a routerLink="/authenticated-user/tasks-monthly" href="#">Tasks</a>
+              <p>
+                <a class="link-style" routerLink="/authenticated-user/weekly/list" 
+                >Weekly</a>
               </p>
-              <p class="text-center">
-                <a routerLink="/authenticated-user/create-task" href="#">Create</a>
-              </p>
-              <p class="text-center">
-                <a routerLink="/authenticated-user/user-profile" href="#">User Profile</a>
+              <p>
+                <a class="link-style" routerLink="/authenticated-user/monthly/list" 
+                >Monthly</a>
               </p>
             </div>
             <!-- Grid column -->
   
             <!-- Grid column -->
-            <hr class="w-100 clearfix d-md-none" />
+            <!-- <hr class="w-100 clearfix d-md-none" /> -->
   
             <!-- Grid column -->
-            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-              <p class="text-center">
-                <a routerLink="/authenticated-user/interval/list" href="#">Interval</a>
-              </p>
-              <p class="text-center">
-                <a routerLink="/authenticated-user/weekly/list" href="#">Weekly</a>
-              </p>
-              <p class="text-center">
-                <a routerLink="/authenticated-user/monthly/list" href="#">Monthly</a>
-              </p>
-              <p class="text-center">
-                <a href="#" (click)="onLogout()">Logout</a>
-              </p>
-            </div>
+            <!--<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+
+            </div> -->
           </div>
           <!--Grid row-->
         </section>
         <!-- Section: Links -->
   
-        <hr class="my-3">
+        <!--<hr class="my-3"> -->
       </div>
       <!-- Grid container -->
     </footer>
   </div>
+  

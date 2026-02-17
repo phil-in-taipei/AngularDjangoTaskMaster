@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: black;
+}
+
 body {
   display: flex;
-  height: 100%;
   flex-direction: column;
+}
+.main {
+  flex: 1 0 auto;
+  background-color: white;  /* Add this explicitly */
 }
 
 .shrink {
@@ -74,11 +88,6 @@ hr {
 
 .thin-white {
   background-color: black;
-}
-
-.main {
-  flex: 1 0 auto;
-  color: black;
 }
 
 .mydropnav {
