@@ -4,11 +4,11 @@
         {{ intervalTask.interval_task_name }}
       </h5>
     </th>
-    <th class="col">
+    <th class="col hidden-small">
       <div *ngIf="!deletionPopupVisible; else delITG" class="col text-left">
         <h5>
           <button
-            class="btn btn-sm btn-outline-dark"
+            class="btn btn-sm btn-dark"
             (click)="showDeletionPopup()"
             >
             Remove
