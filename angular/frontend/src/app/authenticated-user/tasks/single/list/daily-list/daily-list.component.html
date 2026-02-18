@@ -64,7 +64,7 @@
             <tr class="row">
               <th class="col"><p>Date</p></th>
               <th class="col"><p>Name</p></th>
-              <th class="col small-scr"><p>Confirm Completion</p></th>
+              <th class="col hidden-small"><p>Confirm Completion</p></th>
             </tr>
           </thead>
           <tbody>
@@ -79,14 +79,14 @@
                   </a>
                 </p>
               </th>
-              <th *ngIf="task.status !== 'completed'" class="col small-scr">
+              <th *ngIf="task.status !== 'completed'" class="col hidden-small">
                 <p (click)="onConfirmTaskCompletion(task.id)" 
                   class="confirm-style" id="confirm-link"
                 >
                   {{ task.status.charAt(0).toUpperCase() + task.status.slice(1) }}
                 </p>
               </th>
-              <th *ngIf="task.status === 'completed'" class="col">
+              <th *ngIf="task.status === 'completed'" class="col hidden-small">
                 <p>{{ task.status.charAt(0).toUpperCase() + task.status.slice(1) }}</p>
               </th>
             </tr>

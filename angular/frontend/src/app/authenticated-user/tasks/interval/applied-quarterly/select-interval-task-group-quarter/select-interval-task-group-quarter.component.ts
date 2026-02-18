@@ -24,7 +24,7 @@ export class SelectIntervalTaskGroupQuarterComponent implements OnInit{
 
   generateYearsOptions() {
     const nextYear = new Date().getFullYear() + 2;
-    const firstYear = 2024;
+    const firstYear = 2026;
     const years = []
     for (let i = firstYear; i < nextYear; i++) {
       years.push(i)
