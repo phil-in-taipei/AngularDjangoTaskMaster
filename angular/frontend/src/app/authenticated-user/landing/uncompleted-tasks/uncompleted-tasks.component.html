@@ -12,13 +12,17 @@
         id="collapseUncompletedTasks"
         class="collapse table-responsive m-3 p-2"
     >
-    <hr class="thick-br"/>
+    <hr class="thin-br" />
+      <h6 class="text-center small-scr">
+        (Turn Horizontal to Confirm Status)
+      </h6>
+    <hr class="thin-br" />
     <table class="table">
         <thead>
           <tr class="row">
             <th class="col"><p>Date</p></th>
             <th class="col"><p>Name</p></th>
-            <th class="col"><p>Confirm Completion</p></th>
+            <th class="col hidden-small"><p>Confirm Completion</p></th>
           </tr>
         </thead>
         <tbody>
@@ -29,7 +33,7 @@
             <th class="col">
               <p>{{ task.task_name }}</p>
             </th>
-            <th class="col">
+            <th class="col hidden-small">
               <p (click)="onConfirmTaskCompletionAndRemove(task.id)" 
                 class="confirm-style" id="confirm"
               >

@@ -33,13 +33,18 @@
   [style.visibility]="showApplySchedulerSubmitForm ? 'hidden' : 'visible'"
   class="container"
 >
-  <div *ngIf="itgaqs.length > 0; else no_ITGAQ" class="m-3 p-2">
-    <div class="container">
+  <div *ngIf="itgaqs.length > 0; else no_ITGAQ" class="m-2 p-1">
+    <div class="table-responsive">
+      <hr class="thin-br small-scr" />
+      <h6 class="text-center small-scr">
+        (Turn Horizontal to Delete)
+      </h6>
+      <hr class="thin-br small-scr" />
         <table class="table">
             <thead>
               <tr class="row">
-                <th class="col"><h5>Interval Task Group Applied Quarterly</h5></th>
-                <th class="col" id="edit"><h5>Remove</h5></th>
+                <th class="col"><h6>Interval Task Group Applied Quarterly</h6></th>
+                <th class="col hidden-small" id="edit"><h6>Remove</h6></th>
               </tr>
             </thead>
             <tbody>

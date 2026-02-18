@@ -10,18 +10,22 @@
   </div>
 </ng-container>
 
-<div *ngIf="weeklyTaskSchedulers$ | async as weeklyTaskSchedulers" class="container content">
-    <div class="mx-5 pd-2">
-      <hr class="thick-br"/>
+<div *ngIf="weeklyTaskSchedulers$ | async as weeklyTaskSchedulers" class="content">
+    <div class="mx-2 pd-1">
+      <hr class="thin-br"/>
       <h3>Weekly Task Schedulers</h3>
       <h5>{{ weeklyTaskSchedulers.length }} Weekly Task Schedulers(s)</h5>
-      <hr class="thick-br"/>
+      <hr class="thin-br" />
+      <h6 class="text-center small-scr">
+        (Turn Horizontal to Delete)
+      </h6>
+      <hr class="thin-br small-scr" />
       <table class="table table-border-less">
           <thead class="table-border-less">
             <tr class="row">
-              <th class="col"><h5>Day of Week</h5></th>
-              <th class="col"><h5>Task Name</h5></th>
-              <th class="col"><h5>Delete</h5></th>
+              <th class="col"><h6>Day of Week</h6></th>
+              <th class="col"><h6>Task Name</h6></th>
+              <th class="col small-scr"><h6>Delete</h6></th>
             </tr>
           </thead>
           <tbody class="table-border-less">

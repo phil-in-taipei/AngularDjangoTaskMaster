@@ -53,13 +53,18 @@
     <h5>{{ todaysTasks.length }} Task(s) Scheduled</h5>
     <div *ngIf="todaysTasks.length > 0; else no_daily"
         class="table-responsive"
-      >
+    >
+    <hr class="thin-br" />
+      <h6 class="text-center small-scr">
+        (Turn Horizontal to Confirm Status)
+      </h6>
+    <hr class="thin-br" />
         <table class="table">
           <thead>
             <tr class="row">
               <th class="col"><p>Date</p></th>
               <th class="col"><p>Name</p></th>
-              <th class="col"><p>Confirm Completion</p></th>
+              <th class="col small-scr"><p>Confirm Completion</p></th>
             </tr>
           </thead>
           <tbody>
@@ -74,14 +79,14 @@
                   </a>
                 </p>
               </th>
-              <th *ngIf="task.status !== 'COMPLETED'" class="col">
+              <th *ngIf="task.status !== 'completed'" class="col small-scr">
                 <p (click)="onConfirmTaskCompletion(task.id)" 
                   class="confirm-style" id="confirm-link"
                 >
                   {{ task.status.charAt(0).toUpperCase() + task.status.slice(1) }}
                 </p>
               </th>
-              <th *ngIf="task.status === 'COMPLETED'" class="col">
+              <th *ngIf="task.status === 'completed'" class="col">
                 <p>{{ task.status.charAt(0).toUpperCase() + task.status.slice(1) }}</p>
               </th>
             </tr>

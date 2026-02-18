@@ -11,18 +11,22 @@
 </ng-container>
 
 <div *ngIf="monthlyTaskSchedulers$ | async as tasks" class="container content">
-    <div class="mx-5 pd-2">
+    <div class="mx-2 pd-1">
       <hr class="thick-br"/>
       <h3>Monthly Task Schedulers</h3>
       <h5>{{ tasks.length }} Monthly Task Schedulers(s)</h5>
-      <hr class="thick-br"/>
-      <div class="large-scr-tbl">
+      <hr class="thin-br"/>
+      <div class="table-responsive">
+      <h6 class="text-center small-scr">
+        (Turn Horizontal to Delete)
+      </h6>
+    <hr class="thin-br small-scrn" />
         <table class="table">
           <thead>
             <tr class="row">
-              <th class="col"><h5>Day of Month</h5></th>
-              <th class="col"><h5>Task Name</h5></th>
-              <th class="col"><h5>Delete</h5></th>
+              <th class="col"><h6>Day of Month</h6></th>
+              <th class="col"><h6>Task Name</h6></th>
+              <th class="col hidden-small"><h6>Delete</h6></th>
             </tr>
           </thead>
           <tbody>

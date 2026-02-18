@@ -1,46 +1,46 @@
 <tr class="row" >
     <th class="col">
-        <h5>
+        <p>
           <a [routerLink]="['/authenticated-user/interval/detail', intervalTaskGroup.id]">
             {{ intervalTaskGroup.task_group_name }}
           </a>
-        </h5>
+        </p>
     </th>
     <th class="col">
-      <h5>
+      <p>
         {{ intervalTaskGroup.interval_in_days }}
-      </h5>
+      </p>
     </th>
-    <th class="col">
+    <th class="col hidden-small">
       <div *ngIf="!deletionPopupVisible; else delITG" class="col text-left">
-        <h5>
+        <p>
           <button
             class="btn btn-sm btn-dark"
             (click)="showDeletionPopup()"
             >
             Remove
           </button>
-        </h5>
+        </p>
       </div>
       <ng-template #delITG class="row">
         <div class="col">
-          <h5>
+          <p>
             <button
               class="btn btn-sm btn-outline-dark"
               (click)="hideDeletionPopup()">
               Cancel Deletion
             </button>
-          </h5>
+          </p>
         </div>
         <div class="col">
-          <h5>
+          <p>
             <button
               class="btn btn-sm btn-outline-danger"
               (click)="onRemoveTask()"
               >
               Confirm Removal
             </button>
-          </h5>
+          </p>
         </div>
       </ng-template>
     </th>

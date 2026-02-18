@@ -1,44 +1,44 @@
 <tr class="row" >
     <th class="col">
-        <h5>
+        <p>
             {{ monthlyTaskScheduler.day_of_month }}
-        </h5>
+        </p>
     </th>
     <th class="col">
-      <h5>
+      <p>
         {{ monthlyTaskScheduler.monthly_task_name }}
-      </h5>
+      </p>
     </th>
-    <th class="col">
+    <th class="col hidden-small">
       <div *ngIf="!deletionPopupVisible; else delMonthlyTask" class="col text-left">
-        <h5>
+        <p>
           <button
             class="btn btn-sm btn-dark"
             (click)="showDeletionPopup()"
             >
             Remove
           </button>
-        </h5>
+        </p>
       </div>
       <ng-template #delMonthlyTask class="row">
         <div>
-          <h5>
+          <p>
             <button
               class="btn btn-sm bn-dark"
               (click)="hideDeletionPopup()">
               Cancel Deletion
             </button>
-          </h5>
+          </p>
         </div>
         <div class="col">
-          <h5>
+          <p>
             <button
               class="btn btn-sm btn-outline-danger"
               (click)="onRemoveTask()"
               >
               Confirm Removal
             </button>
-          </h5>
+          </p>
         </div>
       </ng-template>
     </th>
