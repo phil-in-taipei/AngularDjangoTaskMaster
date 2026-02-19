@@ -28,10 +28,14 @@
       required
       #intervalTaskGroup="ngModel"
       >
-      <option *ngFor="let intervalTaskGroup of intervalTaskGroups"
-          [value]=intervalTaskGroup.id
-      >{{ intervalTaskGroup.template_selector_string }}
-      </option>
+      <ng-container *ngFor="let intervalTaskGroup of intervalTaskGroups">
+        <option
+          *ngIf="intervalTaskGroup.interval_tasks.length > 0"
+          [value]="intervalTaskGroup.id"
+        >
+          {{ intervalTaskGroup.template_selector_string }}
+        </option>
+      </ng-container>
       </select>
       <div *ngIf="intervalTaskGroup.touched && intervalTaskGroup.invalid">
         Please select a valid interval task group
